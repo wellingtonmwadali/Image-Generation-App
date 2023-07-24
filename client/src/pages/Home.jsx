@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {FormField, Loader} from '../component'
-
+// This is the home file responsible for the homepage"
 const RenderCard = ({data, title}) => {
   if(data?.length > 0){
     return data.map((post) => <Card key={post._id}{...post}/>)
