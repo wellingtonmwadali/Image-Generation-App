@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-//mongoose schema
+// This file contains mongoose schema
  const Post = new mongoose.Schema({
     name: {type: String, required: true},
     prompt: {type: String, required: true},
