@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import {preview} from '../assets';
 import {getRandomPrompt} from '../utilis';
 import { FormField, Loader } from '../component';
+import { toast } from 'react-hot-toast'
 
 //This file deals with the createpost page
 const CreatePost = () => {
@@ -29,12 +30,13 @@ const CreatePost = () => {
 
         setForm({...form, photo: `data:image/jpeg;base64, ${data.photo}`})
       } catch (error) {
-        alert(error)
+        toast("error")
       }finally{
         setGeneratingImg(false);
       }
-    }else{
-      alert('Please enter a prompt')
+    }
+    else{
+      toast("Please enter a prompt")
     }
   }
   const handleSubmit = ()=> {
