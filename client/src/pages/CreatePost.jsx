@@ -30,7 +30,7 @@ const CreatePost = () => {
 
         setForm({...form, photo: `data:image/jpeg;base64, ${data.photo}`})
       } catch (error) {
-        toast("error")
+        toast("API has been exhausted! Try new Api key")
       }finally{
         setGeneratingImg(false);
       }
@@ -39,9 +39,36 @@ const CreatePost = () => {
       toast("Please enter a prompt")
     }
   }
-  const handleSubmit = ()=> {
+  const handleSubmit= async(e)=>{
+    e.preventDefault();
+    if(form.prompt && form.photo){
+        setLoading(true);
 
-  }
+        try{
+            const response = await fetch("http://localhost:8080/api/v1/post",{
+                method: "POST",
+                headers:{
+                    'Content-Type':'application/json',
+                },
+                body:JSON.stringify({...form,}),
+            })
+            await response.json();
+            console.log(response)
+            toast("Successfully shared to the community")
+            navigate('/');
+        }
+        catch(err){
+            alert(err)
+        }
+        finally{
+            setLoading(false);
+        }
+    }
+    else{
+      toast('Click generate to generate the image');
+    }
+
+}
   const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value});{/**name */}
   }
