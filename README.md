@@ -38,10 +38,6 @@ The project's folder structure is organized as follows:
 - `client`: Contains the frontend code built with React and Vite.
 - `server`: Includes the backend code using Express and MongoDB for handling API requests.
 
-## Deployment
-
-To deploy the application to a production environment, follow the deployment instructions based on your preferred hosting service. For instance, you can use platforms like Heroku, AWS, or Vercel.
-
 ## Contributing
 
 We welcome contributions to improve this AI Image Generation Web App. If you find any issues or have ideas for enhancements, feel free to submit a pull request.
